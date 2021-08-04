@@ -1,0 +1,35 @@
+<mat-card class="painel">
+    <mat-card-title>{{titulo}}</mat-card-title>
+    <form class="endereco">
+        <div class="cepDiv">
+            <mat-form-field class="cepForm" appearance="fill">
+                <mat-label>CEP</mat-label>
+                <input matInput [(ngModel)]="endereco.cep" name="cep">
+            </mat-form-field>
+        </div>        
+        <mat-form-field class="ruaForm" appearance="fill">
+            <mat-label>Logradouro</mat-label>
+            <input matInput  [(ngModel)]="endereco.logradouro" name="logradouro">
+        </mat-form-field>
+        <mat-form-field class="numForm" appearance="fill">
+            <mat-label>Nº</mat-label>
+            <input matInput  [(ngModel)]="endereco.numero" name="numero">
+        </mat-form-field>
+        <mat-form-field class="comForm" appearance="fill">
+            <mat-label>Complemento</mat-label>
+            <input matInput  [(ngModel)]="endereco.complemento" name="complemento">
+        </mat-form-field>
+        <mat-form-field class="baiForm" appearance="fill">
+            <mat-label>Bairro</mat-label>
+            <input matInput  [(ngModel)]="endereco.bairro" name="bairro">
+        </mat-form-field>
+        <mat-form-field class="cidForm" appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input matInput  [(ngModel)]="endereco.cidade" name="cidade">
+        </mat-form-field>        
+        <mat-form-field class="estForm" appearance="fill">
+            <mat-label>Estado</mat-label>
+            <input matInput  [(ngModel)]="endereco.uf" name="uf">
+        </mat-form-field>        
+    </form>
+</mat-card>

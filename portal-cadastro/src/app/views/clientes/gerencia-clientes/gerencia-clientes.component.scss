@@ -1,0 +1,49 @@
+$kyrosYellow: #fac426;
+$kyrosGray: #59676e;
+$kyrosBackgroud: white;
+
+table {
+    width: 100%;
+    color: black;
+    background-color: white;
+}
+::ng-deep .mat-header-cell{
+    color: black !important;
+}
+.mat-cell, .mat-footer-cell {
+    color: black !important;
+}
+mat-card-title{
+    color: $kyrosYellow;
+    padding-bottom: 10px;
+}
+tr:nth-child(even) {background-color: #999;}
+button{
+    margin-right: 5px !important;
+}
+.painel {
+    width: 90%;
+    background-color: white;
+    height: fit-content;
+    margin: 30px 5% 100px 5%;
+    color: black;
+}
+.pesquisar {
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-label {
+    color: $kyrosGray !important;
+}
+
+::ng-deep.mat-form-field-underline {
+    background-color: gray !important;
+    height: 1px;
+}
+
+::ng-deep.mat-form-field-ripple {
+    background-color: $kyrosYellow !important;
+}
+input{
+    color: black;
+}

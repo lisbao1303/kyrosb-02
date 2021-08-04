@@ -1,0 +1,54 @@
+$kyrosYellow: #fac426;
+$kyrosGray: #59676e;
+$kyrosBackgroud: white;
+
+.endereco {    
+    width: 100%;
+    margin-top: 10px;
+}
+.endereco mat-form-field{
+    margin-left: 10px;
+}
+
+.painel {
+    min-width: 200px;
+    max-width: 100%;
+    right: 10px;
+    width: 90%;
+    height: fit-content;    
+    margin: 30px 5% 0 5%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+mat-card-title{
+    color: $kyrosYellow;
+    padding-bottom: 10px;
+}
+
+.cepDiv{
+    width: 100%;
+}
+
+
+@media (max-width: 991px) {
+    mat-form-field {        
+        width: 100%;    
+    }
+}
+
+::ng-deep .mat-form-field-label {
+    color: $kyrosGray !important;
+}
+
+::ng-deep.mat-form-field-underline {
+    background-color: gray !important;
+    height: 1px;
+}
+
+::ng-deep.mat-form-field-ripple {
+    background-color: $kyrosYellow !important;
+}
+input{
+    color: black;
+}

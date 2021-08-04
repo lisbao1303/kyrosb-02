@@ -1,0 +1,24 @@
+<div>
+  <app-loading *ngIf="Carregando"></app-loading>
+  <mat-toolbar class="cabecalho">    
+    <span><img class="logo"src="assets/svg/kyrosLogo.svg"></span>
+    <span class="spacer"></span>
+    <span>
+      <button mat-icon-button class="toogleMenu" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </span>
+  </mat-toolbar>
+    <mat-drawer-container class="container" [hasBackdrop]="innerWidth > 991 ? false:true">
+    <mat-drawer #drawer class="menuLateral" [mode]="innerWidth > 991 ? 'side':'over'" opened>
+      <button mat-raised-button routerLink="novocliente"><mat-icon>add_circle_outline</mat-icon> Novo Cliente</button>
+      <button mat-raised-button routerLink="cliente/buscar"><mat-icon>search</mat-icon> Buscar Cliente</button>
+      <button mat-raised-button routerLink="gerenciador"><mat-icon>engineering</mat-icon> Gerenciar Clientes</button>
+        </mat-drawer> 
+    <mat-drawer-content class="conteudo">      
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+  
+</div>

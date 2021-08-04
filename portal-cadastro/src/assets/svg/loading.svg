@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64 Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="600px" height="80px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 600 600"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#222}
+    .fil1 {fill:#FAC426}
+   ]]>
+  </style>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1868927240832">
+   <path class="fil0" d="M117 283l0 -129c0,-40 9,-33 -67,-33l0 351c0,12 20,7 53,7 20,0 15,-14 14,-34l0 -143c10,3 72,78 85,91 14,14 30,31 42,46 7,9 14,14 21,22 9,10 9,17 28,17 102,0 78,11 -13,-97 -28,-33 -60,-64 -88,-96 12,-18 101,-117 123,-144 7,-8 15,-13 15,-26 -16,0 -32,0 -48,0 -23,0 -23,0 -34,14 -15,19 -29,33 -44,52l-89 102z"/>
+   <circle class="fil1" cx="463" cy="397" r="88">
+       <animate attributeName="cx" values="463;900;463" dur="1.5s" repeatCount="indefinite" />
+   </circle>
+  </g>
+ </g>
+</svg>

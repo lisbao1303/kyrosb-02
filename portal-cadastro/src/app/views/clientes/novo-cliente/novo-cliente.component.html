@@ -1,0 +1,37 @@
+<div>
+
+</div>
+<div class="novocliente">
+    <mat-card class="painel">
+        <mat-card-title>Novo Cliente</mat-card-title>
+    
+        <form class="formulario">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input matInput disabled  [(ngModel)]="cliente.cpf" name="cpf">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput [(ngModel)]="cliente.nome" name="nome">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Data de Nascimento</mat-label>
+                <input matInput [(ngModel)]="cliente.data_nascimento" name="data_nascimento">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="cliente.email" name="email">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Telefone</mat-label>
+                <input matInput [(ngModel)]="cliente.telefone" name="telefone">
+            </mat-form-field>
+        </form>
+    </mat-card>
+    <app-endereco [tipo]="'S'"></app-endereco>
+</div>
+<app-endereco [tipo]="'N'" *ngFor="let endereco of enderecos" ></app-endereco>
+<div class="adcionaEndereco">
+    <span><button mat-raised-button (click)="addEndereco()"><mat-icon>add_circle_outline</mat-icon> Adicionar Endereço</button></span>
+    <span><button mat-raised-button class="cadastroButton" (click)="cadastrarCliente()"><mat-icon>add_circle_outline</mat-icon> Cadastrar</button></span>
+</div>
