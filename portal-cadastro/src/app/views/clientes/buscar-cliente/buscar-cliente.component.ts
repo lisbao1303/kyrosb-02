@@ -82,10 +82,10 @@ export class BuscarClienteComponent implements OnInit {
     this.clienteService.deletaCliente(this.cliente.cpf)
     .subscribe(
       res => {
-        if(res){
-        this.router.navigateByUrl('/cliente/buscar');
-        }
         AppComponent.isCarregando = false;
+        if(res){
+          AppComponent.onRefresh()
+        }        
       },
       error => { 
         AppComponent.isCarregando = false;
@@ -101,12 +101,12 @@ export class BuscarClienteComponent implements OnInit {
     AppComponent.isCarregando = true;
     this.clienteService.clientePorCpf(this.cpfCliente).subscribe(
       res => {
+        AppComponent.isCarregando = false;
         this.cliente = res
         this.enderecoPrincipal = this.cliente.enderecos.filter(end=>end.is_primario=="S")[0];
         this.enderecosAlternativos = this.cliente.enderecos.filter(end=>end.is_primario!="S");     
         this.clienteEncontrado = true;
-        this.router.navigateByUrl('/cliente/'+this.cliente.cpf)
-        AppComponent.isCarregando = false;
+        this.router.navigateByUrl('/cliente/'+this.cliente.cpf)        
       },
       error => {
         AppComponent.isCarregando = false;
@@ -120,15 +120,13 @@ export class BuscarClienteComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.cpfCliente = params['cpf'];
       if(this.cpfCliente.length == 11){
-    AppComponent.isCarregando = true;
         this.clienteService.clientePorCpf(this.cpfCliente).subscribe(
           res => {
             this.cliente = res
             this.enderecoPrincipal = this.cliente.enderecos.filter(end=>end.is_primario=="S")[0];
             this.enderecosAlternativos = this.cliente.enderecos.filter(end=>end.is_primario!="S");     
             this.clienteEncontrado = true;
-    AppComponent.isCarregando = false;
-
+            AppComponent.isCarregando = false;
           },
           error => {
             AppComponent.isCarregando = false;

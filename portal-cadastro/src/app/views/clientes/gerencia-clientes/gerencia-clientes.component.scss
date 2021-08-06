@@ -49,3 +49,14 @@ button{
 input{
     color: black;
 }
+
+@media (max-width: 991px) {
+    button{
+        margin-right: 0px !important;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .painel {
+        width: 80%;
+    }
+}

@@ -11,12 +11,12 @@
   </mat-toolbar>
     <mat-drawer-container class="container" [hasBackdrop]="innerWidth > 991 ? false:true">
     <mat-drawer #drawer class="menuLateral" [mode]="innerWidth > 991 ? 'side':'over'" opened>
-      <button mat-raised-button routerLink="novocliente"><mat-icon>add_circle_outline</mat-icon> Novo Cliente</button>
-      <button mat-raised-button routerLink="cliente/buscar"><mat-icon>search</mat-icon> Buscar Cliente</button>
-      <button mat-raised-button routerLink="gerenciador"><mat-icon>engineering</mat-icon> Gerenciar Clientes</button>
+      <button mat-raised-button [style.color]="hover[0]" routerLink="novocliente"><mat-icon>add_circle_outline</mat-icon> Novo Cliente</button>
+      <button mat-raised-button [style.color]="hover[1]"  routerLink="cliente/buscar"><mat-icon>search</mat-icon> Buscar Cliente</button>
+      <button mat-raised-button [style.color]="hover[2]"  routerLink="gerenciador"><mat-icon>engineering</mat-icon> Gerenciar Clientes</button>
         </mat-drawer> 
     <mat-drawer-content class="conteudo">      
-      <router-outlet></router-outlet>
+      <router-outlet (activate)="mudancaDeRota()"></router-outlet>
     </mat-drawer-content>
   </mat-drawer-container>
 

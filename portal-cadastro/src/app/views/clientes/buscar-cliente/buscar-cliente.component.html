@@ -4,7 +4,7 @@
         <div class="cepDiv">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>CPF Cliente</mat-label>
-                <input type="number" matInput [(ngModel)]="cpfCliente" name="cpfBuca">
+                <input matInput [(ngModel)]="cpfCliente" mask="000.000.000-00" name="cpfBusca">
             </mat-form-field>
             <span><button mat-raised-button class="blueButton"
                     (click)="carregaCliente()">Pesquisar</button></span>
@@ -14,7 +14,7 @@
 <div class="buscado" *ngIf="clienteEncontrado">
     <div class="novocliente">
         <mat-card class="painel">
-            <mat-card-title>CPF: {{cliente.cpf}}</mat-card-title>
+            <mat-card-title>CPF: {{cliente.cpf | mask:'000.000.000-00' }}</mat-card-title>
             <form class="formulario">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Nome</mat-label>
@@ -30,7 +30,7 @@
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Telefone</mat-label>
-                    <input matInput [(ngModel)]="cliente.telefone" name="telefone">
+                    <input matInput [(ngModel)]="cliente.telefone" mask="(00) 00000-0000" name="telefone">
                 </mat-form-field>
             </form>
         </mat-card>

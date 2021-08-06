@@ -9,10 +9,28 @@ import { Router } from '@angular/router';
 export class AppComponent {
   innerWidth = window.innerWidth;
   title = "portal-cadastro";
+  hover = ['white', 'white', 'white'];
   public static isCarregando = false;
   public static router: Router;
   constructor(private routerPrivate: Router) {
-    AppComponent.router = routerPrivate;
+    AppComponent.router = routerPrivate;    
+  }
+
+  mudancaDeRota(){
+    console.log(this.routerPrivate.url)
+    switch (this.routerPrivate.url) {
+      case '/novocliente':
+        this.hover = ['#FAC426', 'white', 'white'];
+        break;
+      case '/cliente/buscar':
+        this.hover = ['white', '#FAC426', 'white'];
+        break;
+      case '/gerenciador':
+        this.hover = ['white', 'white', '#FAC426'];
+        break;
+      default:
+        this.hover = ['white', 'white', 'white'];
+    }
   }
 
   public static onRefresh() {

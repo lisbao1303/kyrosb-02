@@ -45,10 +45,17 @@ mat-card-title{
         width: 100%;    
     }
     .painel {
-        width: 90%;
-        max-width: 90%;
+        width: 80%;
+        max-width: 80%;
+        min-width: 80%;
         right: 0px;    
     }
+    .endereco mat-form-field{
+    margin-left: 0;
+}
+.cepDiv{
+   display: block;
+}
 }
 
 ::ng-deep .mat-form-field-label {

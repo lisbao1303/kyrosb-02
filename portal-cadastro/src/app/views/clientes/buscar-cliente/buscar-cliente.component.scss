@@ -54,15 +54,20 @@ mat-card-title{
         width: 100%;    
     }
     .novocliente{
-        display: block;    
+        display: block;
+        margin-right: 0px;
     }
     .painel {
-        width: 90%;
-        max-width: 90%;
+        width: 80%;
+        max-width: 80%;
     }
-    .adcionaEndereco{
-        
+    .adcionaEndereco{        
         display: block;
+    }
+    .redButton{
+        background-color: red;
+        margin-left: 0px;
+        margin-top: 10px;
     }
 }
 ::ng-deep .mat-form-field-label {

@@ -8,8 +8,8 @@
         <form class="formulario">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>CPF</mat-label>
-                <input matInput [(ngModel)]="cliente.cpf" name="cpf" placeholder="Ex. 000.000.000-00" type="number" [formControl]="cpfFormControl">
-                <mat-error *ngIf="cpfFormControl.hasError('maxLength') && !emailFormControl.hasError('required')">
+                <input matInput [(ngModel)]="cliente.cpf" mask="000.000.000-00" name="cpf" placeholder="Ex. 000.000.000-00" [formControl]="cpfFormControl">
+                <mat-error *ngIf="cpfFormControl.hasError('maxLength()') && !emailFormControl.hasError('required')">
                     CPF Inválido
                   </mat-error>
                   <mat-error *ngIf="cpfFormControl.hasError('required')">
@@ -36,7 +36,7 @@
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Telefone</mat-label>
-                <input matInput [(ngModel)]="cliente.telefone" name="telefone">
+                <input matInput [(ngModel)]="cliente.telefone" mask="(00) 00000-0000" name="telefone">
             </mat-form-field>
         </form>
     </mat-card>

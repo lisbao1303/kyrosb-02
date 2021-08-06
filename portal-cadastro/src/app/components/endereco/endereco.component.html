@@ -4,7 +4,7 @@
         <div class="cepDiv">
             <mat-form-field class="cepForm" appearance="fill">
                 <mat-label>CEP</mat-label>
-                <input matInput type="number"  [(ngModel)]="endereco.cep" (focusout)="enderecoPorCep()" name="cep">
+                <input matInput mask="00000-000" [(ngModel)]="endereco.cep" (focusout)="enderecoPorCep()" name="cep">
             </mat-form-field>
             <span><button mat-raised-button *ngIf="eAlternativo" class="redButton" (click)="removerEndereco()">Remover</button></span>                
             <span><button mat-raised-button *ngIf="eAlternativoPrincipal" class="blueButton" (click)="tornarPrincipal()">Tornar Principal</button></span>                
