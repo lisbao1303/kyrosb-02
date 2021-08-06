@@ -1,11 +1,13 @@
-<mat-card class="painel">
+<mat-card class="painel" *ngIf="naoRemovido">
     <mat-card-title>{{titulo}}</mat-card-title>
     <form class="endereco">
         <div class="cepDiv">
             <mat-form-field class="cepForm" appearance="fill">
                 <mat-label>CEP</mat-label>
-                <input matInput [(ngModel)]="endereco.cep" name="cep">
+                <input matInput type="number"  [(ngModel)]="endereco.cep" (focusout)="enderecoPorCep()" name="cep">
             </mat-form-field>
+            <span><button mat-raised-button *ngIf="eAlternativo" class="redButton" (click)="removerEndereco()">Remover</button></span>                
+            <span><button mat-raised-button *ngIf="eAlternativoPrincipal" class="blueButton" (click)="tornarPrincipal()">Tornar Principal</button></span>                
         </div>        
         <mat-form-field class="ruaForm" appearance="fill">
             <mat-label>Logradouro</mat-label>
@@ -13,7 +15,7 @@
         </mat-form-field>
         <mat-form-field class="numForm" appearance="fill">
             <mat-label>Nº</mat-label>
-            <input matInput  [(ngModel)]="endereco.numero" name="numero">
+            <input matInput type="number" [(ngModel)]="endereco.numero" name="numero">
         </mat-form-field>
         <mat-form-field class="comForm" appearance="fill">
             <mat-label>Complemento</mat-label>

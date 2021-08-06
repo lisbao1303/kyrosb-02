@@ -8,7 +8,13 @@
         <form class="formulario">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>CPF</mat-label>
-                <input matInput disabled  [(ngModel)]="cliente.cpf" name="cpf">
+                <input matInput [(ngModel)]="cliente.cpf" name="cpf" placeholder="Ex. 000.000.000-00" type="number" [formControl]="cpfFormControl">
+                <mat-error *ngIf="cpfFormControl.hasError('maxLength') && !emailFormControl.hasError('required')">
+                    CPF Inválido
+                  </mat-error>
+                  <mat-error *ngIf="cpfFormControl.hasError('required')">
+                    CPF é <strong>obrigatório</strong>
+                  </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Nome</mat-label>
@@ -16,11 +22,17 @@
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Data de Nascimento</mat-label>
-                <input matInput [(ngModel)]="cliente.data_nascimento" name="data_nascimento">
+                <input matInput type="date" [(ngModel)]="cliente.data_nascimento" name="data_nascimento">
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput [(ngModel)]="cliente.email" name="email">
+                <input matInput [(ngModel)]="cliente.email" name="email" placeholder="Ex. pat@example.com" type="email" [formControl]="emailFormControl">
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Email Inválido
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email é <strong>obrigatório</strong>
+                  </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Telefone</mat-label>

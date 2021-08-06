@@ -12,6 +12,7 @@ import { Cliente } from 'src/app/services/models/cliente.model';
 export class GerenciaClientesComponent implements OnInit {
 
   clientes: Cliente[] = [];
+  cpfCliente = "";
   dataSource: MatTableDataSource<Cliente>;
   displayedColumns: string[] = ['cpf', 'nome', 'data_nascimento', 'email', 'telefone', 'acoes'];
   constructor(private clienteService: ClienteService) {
@@ -24,14 +25,36 @@ export class GerenciaClientesComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  excluirCliente(cpf: string){
+    AppComponent.isCarregando = true;
+    this.clienteService.deletaCliente(cpf)
+    .subscribe(
+      res => {
+        if(res){
+        AppComponent.isCarregando = false;
+        AppComponent.onRefresh();
+        }
+      },
+      error => { 
+        AppComponent.isCarregando = false;
+      },
+      () => {
+        AppComponent.isCarregando = false;
+      }
+    )          
+  }
   ngOnInit(): void {
+    if(innerWidth < 991) this.displayedColumns = ['cpf', 'acoes'];
     AppComponent.isCarregando = true;
     this.clienteService.todosClientes()
       .subscribe(
         res => {
           this.clientes = res
+          AppComponent.isCarregando = false;
         },
-        error => { },
+        error => { 
+          AppComponent.isCarregando = false;
+        },
         () => {
           AppComponent.isCarregando = false;
         }

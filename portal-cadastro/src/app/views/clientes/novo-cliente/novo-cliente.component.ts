@@ -1,4 +1,6 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { EnderecoComponent } from 'src/app/components/endereco/endereco.component';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -12,7 +14,7 @@ import { Cliente, Endereco } from 'src/app/services/models/cliente.model';
 export class NovoClienteComponent implements OnInit {
 
   cliente: Cliente = {
-    cpf: "213213",
+    cpf: "",
     nome: "",
     data_nascimento: "",
     email: "",
@@ -35,10 +37,10 @@ export class NovoClienteComponent implements OnInit {
   enderecos: Array<EnderecoComponent> = [];
   @ViewChildren(EnderecoComponent) components: QueryList<EnderecoComponent> = new QueryList<EnderecoComponent>();
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(private clienteService: ClienteService, private router: Router) { }
 
   addEndereco() {
-    this.enderecos.push(new EnderecoComponent());
+    this.enderecos.push(new EnderecoComponent(this.clienteService, this.router));
   }
   cadastrarCliente() {
     AppComponent.isCarregando = true;
@@ -47,10 +49,10 @@ export class NovoClienteComponent implements OnInit {
       this.endereco.cpf_cliente = this.cliente.cpf;
       this.cliente.enderecos.push(this.endereco);      
     });
-    console.log(this.cliente);
       this.clienteService.novoCliente(this.cliente).subscribe(
         res => {
           this.cliente = res
+          this.router.navigateByUrl('/cliente/'+this.cliente.cpf)
         },
         error => {
           AppComponent.isCarregando = false;
@@ -61,6 +63,15 @@ export class NovoClienteComponent implements OnInit {
       )
   }
 
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  cpfFormControl = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(11),
+    Validators.nullValidator
+  ]);
   ngOnInit(): void {
   }
 

@@ -31,7 +31,9 @@ button{
 .pesquisar {
     width: 100%;
 }
-
+.acoes button{
+    float: right;
+}
 ::ng-deep .mat-form-field-label {
     color: $kyrosGray !important;
 }

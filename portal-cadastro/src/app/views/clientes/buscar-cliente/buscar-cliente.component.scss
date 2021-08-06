@@ -1,0 +1,82 @@
+$kyrosYellow: #fac426;
+$kyrosGray: #59676e;
+$kyrosBackgroud: white;
+
+.novocliente{
+    width: 90%;
+    margin-right: 10px;
+    height: fit-content;
+    display: flex;    
+}
+.redButton{
+    background-color: red;
+    margin-left: 10px;
+}
+.formulario {    
+    width: 100%;
+    margin-top: 10px;
+}
+
+.adcionaEndereco{
+    width: fit-content;
+    height: fit-content; 
+    margin: 30px 5% 100px 5%;
+    display: flex;
+    background-color: #999;
+}
+
+input{
+    color: black;
+}
+.painel {
+    min-width: 200px;
+    max-width: 300px;
+    height: fit-content;    
+    margin: 30px 5% 0 5%;
+    background-color: white;
+}
+
+.salvarButton{
+    margin-left: 10px;
+    background-color: yellowgreen;
+    float: right;
+}
+mat-form-field {        
+    width: 100%;    
+}
+mat-card-title{
+    color: $kyrosYellow;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+    mat-form-field {        
+        width: 100%;    
+    }
+    .novocliente{
+        display: block;    
+    }
+    .painel {
+        width: 90%;
+        max-width: 90%;
+    }
+    .adcionaEndereco{
+        
+        display: block;
+    }
+}
+::ng-deep .mat-form-field-label {
+    color: $kyrosGray !important;
+}
+
+::ng-deep.mat-form-field-underline {
+    background-color: gray !important;
+    height: 1px;
+}
+
+::ng-deep.mat-form-field-ripple {
+    background-color: $kyrosYellow !important;
+}
+input{
+    color: black;
+}

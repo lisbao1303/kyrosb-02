@@ -1,1 +1,49 @@
-<p>buscar-cliente works!</p>
+<mat-card class="painel" *ngIf="!clienteEncontrado">
+    <mat-card-title>Busca por CPF</mat-card-title>
+    <form class="formulario">
+        <div class="cepDiv">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>CPF Cliente</mat-label>
+                <input type="number" matInput [(ngModel)]="cpfCliente" name="cpfBuca">
+            </mat-form-field>
+            <span><button mat-raised-button class="blueButton"
+                    (click)="carregaCliente()">Pesquisar</button></span>
+        </div>
+    </form>
+</mat-card>
+<div class="buscado" *ngIf="clienteEncontrado">
+    <div class="novocliente">
+        <mat-card class="painel">
+            <mat-card-title>CPF: {{cliente.cpf}}</mat-card-title>
+            <form class="formulario">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nome</mat-label>
+                    <input matInput [(ngModel)]="cliente.nome" name="nome">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Data de Nascimento</mat-label>
+                    <input matInput type="date" [(ngModel)]="cliente.data_nascimento" name="data_nascimento">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput [(ngModel)]="cliente.email" type="email" name="email">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Telefone</mat-label>
+                    <input matInput [(ngModel)]="cliente.telefone" name="telefone">
+                </mat-form-field>
+            </form>
+        </mat-card>
+        <app-endereco [endereco]="enderecoPrincipal" [tipo]="'S'"></app-endereco>
+    </div>
+    <app-endereco [tipo]="'N'" [endereco]="endereco" *ngFor="let endereco of enderecosAlternativos"></app-endereco>
+    <app-endereco [tipo]="'N'" *ngFor="let endereco of enderecos"></app-endereco>
+    <div class="adcionaEndereco">
+        <span><button mat-raised-button (click)="addEndereco()">
+                <mat-icon>add_circle_outline</mat-icon> Adicionar Endereço
+            </button></span>
+        <span><button mat-raised-button class="salvarButton" (click)="salvarCliente()">Salvar</button></span>
+        <span><button mat-raised-button class="redButton" (click)="removerCliente()">Remover Cliente</button></span>
+
+    </div>
+</div>
